@@ -1,0 +1,68 @@
+#!/usr/bin/make -f
+BUILDDIR = $(CURDIR)/debian/build
+tmpInstall = $(CURDIR)/debian/tmp
+tmpDirMatplotLib = $(CURDIR)/debian/matplotlib
+
+%:
+	dh $@ --buildsystem=cmake --builddirectory=$(BUILDDIR) --with python2 --parallel
+
+export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+export MPLCONFIGDIR := $(tmpDirMatplotLib) 
+export HOME := $(tmpDirMatplotLib) 
+export LD_LIBRARY_PATH :=  $(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py/gts:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py/yade:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py/yade/qt:$(LD_LIBRARY_PATH); 
+export DEB_HOST_MULTIARCH := $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+export YADE_PREFIX := $(tmpInstall)/usr
+
+extra_flags += \
+-DruntimePREFIX="/usr" \
+-DINSTALL_PREFIX="/usr" \
+-DSUFFIX="daily" \
+-DLIBRARY_OUTPUT_PATH=lib/$(DEB_HOST_MULTIARCH) \
+-DYADE_VERSION=$(shell dpkg-parsechangelog | sed -n 's/^Version: \([^-]*\).*$$/\1/p') \
+
+override_dh_auto_configure:
+	dh_auto_configure -- $(extra_flags)
+	mkdir -p $(tmpDirMatplotLib)
+	mkdir -p $(tmpInstall)
+	#Output an information about available memory and CPU
+	-cat /proc/meminfo
+	-cat /proc/cpuinfo
+
+override_dh_auto_install-arch:
+	dh_auto_install -a
+	# generate manpages
+	help2man $(tmpInstall)/usr/bin/yadedaily > yadedaily.1
+	help2man $(tmpInstall)/usr/bin/yadedaily-batch > yadedaily-batch.1
+	$(tmpInstall)/usr/bin/yadedaily --test
+	$(tmpInstall)/usr/bin/yadedaily --check
+	#Delete all pyc files
+	find . -name '*.pyc' -print0 | xargs -0 rm -f
+	dh_numpy
+
+override_dh_installchangelogs:
+	dh_installchangelogs ChangeLog
+
+override_dh_installman:
+	dh_installman -p yadedaily yadedaily.1 yadedaily-batch.1
+
+override_dh_compress:
+	dh_compress --all -X.py -X.stl -X.gts -X.geo -X.mesh -X.msh -X.pdf -X.png -X.svg -X.txt -X.js -X.inv
+
+override_dh_auto_install-indep: 
+	#Generate docs
+	cd $(CURDIR)/doc/sphinx; PYTHONPATH=. $(tmpInstall)/usr/bin/yadedaily yadeSphinx.py; cd _build/latex; xelatex Yade.tex; xelatex Yade.tex; xelatex Yade.tex;
+	#Delete all pyc files
+	find . -name '*.pyc' -print0 | xargs -0 rm -f
+
+override_dh_auto_test: 
+
+override_dh_installdocs-indep:
+	dh_installdocs
+	dh_sphinxdoc
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf $(BUILDDIR)
+

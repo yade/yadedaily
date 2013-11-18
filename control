@@ -1,0 +1,157 @@
+Source: yadedaily
+Section: science
+Priority: extra
+Homepage: https://launchpad.net/yade
+Maintainer: Debian Science Maintainers <debian-science-maintainers@lists.alioth.debian.org>
+Uploaders: Anton Gladky <gladk@debian.org>
+Vcs-Git: git://anonscm.debian.org/debian-science/packages/yade.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=debian-science/packages/yade.git
+X-Python-Version: current
+Build-Depends:
+ cmake,
+ debhelper (>= 9),
+ freeglut3-dev,
+ help2man,
+ ipython,
+ libboost-all-dev,
+ libbz2-dev,
+ libcgal-dev [!armel],
+ libeigen3-dev,
+ libgl1-mesa-dev,
+ libgts-dev,
+ libloki-dev,
+ libmetis-dev [amd64 i386 ia64 kfreebsd-amd64 kfreebsd-i386 powerpc],
+ libopenblas-dev [amd64 i386 ia64 kfreebsd-amd64 kfreebsd-i386 powerpc],
+ libqglviewer-dev | libqglviewer-qt4-dev,
+ libsuitesparse-dev [amd64 i386 ia64 kfreebsd-amd64 kfreebsd-i386 powerpc],
+ libvtk5-dev,
+ libxi-dev,
+ libxmu-dev,
+ pyqt4-dev-tools,
+ python-all-dev (>= 2.6.6-3~),
+ python-argparse,
+ python-gts,
+ python-imaging,
+ python-matplotlib,
+ python-minieigen [!precise],
+ python-numpy,
+ python-qt4,
+ python-support,
+ python-tk,
+ python-xlib,
+ zlib1g-dev
+Build-Depends-Indep:
+ dvipng,
+ graphviz,
+ libjs-jquery,
+ lmodern,
+ python-bibtex,
+ python-sphinx (>= 1.0.7+dfsg),
+ texlive-fonts-recommended,
+ texlive-latex-extra,
+ texlive-latex-recommended,
+ texlive-pictures,
+ texlive-xetex,
+ tipa
+Standards-Version: 3.9.4
+
+Package: yadedaily
+Architecture: any
+Pre-Depends:
+ ${misc:Pre-Depends}
+Multi-Arch: foreign
+Depends:
+ gnuplot,
+ gtk2-engines-pixbuf,
+ ipython,
+ libyadedaily (= ${binary:Version}),
+ python-yadedaily (= ${binary:Version}), 
+ ${python:Depends},
+ ${misc:Depends}
+Description: Platform for discrete element modeling
+ Yet Another Dynamic Engine.
+ .
+ Extensible open-source framework for discrete numerical models,
+ focused on Discrete Element Method.
+ The computation parts are written in c++ using flexible object model,
+ allowing independent implementation of new algorithms and interfaces.
+ Python is used for rapid and concise scene construction,
+ simulation control, postprocessing and debugging.
+ .
+ This package contains speed-optimized build of yade.
+
+Package: libyadedaily
+Architecture: any
+Pre-Depends:
+ ${misc:Pre-Depends}
+Multi-Arch: same
+Breaks: yadedaily (<<5) 
+Replaces: yadedaily (<<5) 
+Depends:
+ libopenblas-dev [amd64 i386 ia64 kfreebsd-amd64 kfreebsd-i386 powerpc],
+ ${misc:Depends},
+ ${shlibs:Depends}
+Description: Platform for discrete element modeling. Libraries
+ Yet Another Dynamic Engine.
+ .
+ Extensible open-source framework for discrete numerical models,
+ focused on Discrete Element Method.
+ The computation parts are written in c++ using flexible object model,
+ allowing independent implementation of new algorithms and interfaces.
+ Python is used for rapid and concise scene construction,
+ simulation control, postprocessing and debugging.
+ .
+ This package contains yade`s libraries.
+
+Package: python-yadedaily
+Architecture: any
+Section: python
+Pre-Depends:
+ ${misc:Pre-Depends}
+Multi-Arch: foreign
+Breaks: yade (<<0.97.0-2) 
+Replaces: yade (<<0.97.0-2) 
+Depends:
+ libyadedaily (= ${binary:Version}),
+ python-argparse,
+ python-gts,
+ python-imaging,
+ python-matplotlib,
+ python-minieigen [!precise],
+ python-qt4,
+ python-tk,
+ python-xlib,
+ ${misc:Depends},
+ ${python:Depends},
+ ${shlibs:Depends}
+Description: Platform for discrete element modeling. Python bindings
+ Yet Another Dynamic Engine.
+ .
+ Extensible open-source framework for discrete numerical models,
+ focused on Discrete Element Method.
+ The computation parts are written in c++ using flexible object model,
+ allowing independent implementation of new algorithms and interfaces.
+ Python is used for rapid and concise scene construction,
+ simulation control, postprocessing and debugging.
+ .
+ This package contains python bindings for yade.
+
+Package: yadedaily-doc
+Architecture: all
+Section: doc
+Recommends:
+ yadedaily
+Depends:
+ ${sphinxdoc:Depends},
+ ${misc:Depends}
+Description: Platform for discrete element modeling. Documentation
+ Yet Another Dynamic Engine.
+ .
+ Extensible open-source framework for discrete numerical models,
+ focused on Discrete Element Method.
+ The computation parts are written in c++ using flexible object model,
+ allowing independent implementation of new algorithms and interfaces.
+ Python is used for rapid and concise scene construction,
+ simulation control, postprocessing and debugging.
+ .
+ This package contains examples, test scripts and documentation.

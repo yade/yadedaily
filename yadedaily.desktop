@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Yade daily
+GenericName=Yade
+Exec=/usr/bin/yadedaily
+Icon=/usr/share/pixmaps/yadedaily_32x32.xpm
+Terminal=true
+Categories=Education;Physics;Science;

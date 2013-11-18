@@ -1,0 +1,12 @@
+Document: yadedaily-documentation
+Title: This documentation describes Yade
+Author: Yade developers <yade-dev@lists.launchpad.net>
+Abstract: Yade is an extensible open-source framework for discrete numerical models, focused on Discrete Element Method. The computation parts are written in c++ using flexible object model, allowing independent implementation of new alogrithms and interfaces. Python is used for rapid and concise scene construction, simulation control, postprocessing and debugging.
+Section: Science/Physics
+
+Format: html
+Index: /usr/share/doc/yadedaily-doc/html/index.html
+Files: /usr/share/doc/yadedaily-doc/*.*
+
+Format: PDF
+Files: /usr/share/doc/yadedaily-doc/Yade.pdf

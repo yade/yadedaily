@@ -1,0 +1,8 @@
+?package(yade):\
+	needs="X11"\
+	section="Applications/Science/Physics"\
+	title="Yade Daily"\
+	command="/usr/bin/yadedaily"\
+	icon="/usr/share/pixmaps/yade_32x32.xpm"\
+	icon16x16="/usr/share/pixmaps/yade_16x16.xpm"\
+	icon32x32="/usr/share/pixmaps/yade_32x32.xpm"

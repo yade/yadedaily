@@ -1,0 +1,4 @@
+http://http.debian.net/debian
+main
+amd64 i386
+/usr/share/keyrings/debian-archive-keyring.gpg
