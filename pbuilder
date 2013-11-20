@@ -1,4 +1,4 @@
-http://http.debian.net/debian
+http://ftp.de.debian.org/debian
 main
 amd64 i386
 /usr/share/keyrings/debian-archive-keyring.gpg
