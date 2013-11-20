@@ -28,7 +28,6 @@ Build-Depends:
  pyqt4-dev-tools,
  python-all-dev (>= 2.6.6-3~),
  python-argparse,
- python-gts,
  python-imaging,
  python-matplotlib,
  python-numpy,
@@ -111,7 +110,6 @@ Replaces: yade (<<0.97.0-2)
 Depends:
  libyadedaily (= ${binary:Version}),
  python-argparse,
- python-gts,
  python-imaging,
  python-matplotlib,
  python-qt4,
