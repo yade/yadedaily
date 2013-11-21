@@ -85,8 +85,6 @@ Architecture: any
 Pre-Depends:
  ${misc:Pre-Depends}
 Multi-Arch: same
-Breaks: yadedaily (<<5) 
-Replaces: yadedaily (<<5) 
 Depends:
  libopenblas-dev [amd64 i386 ia64 kfreebsd-amd64 kfreebsd-i386 powerpc],
  ${misc:Depends},
@@ -109,8 +107,6 @@ Section: python
 Pre-Depends:
  ${misc:Pre-Depends}
 Multi-Arch: foreign
-Breaks: yade (<<0.97.0-2) 
-Replaces: yade (<<0.97.0-2) 
 Depends:
  libyadedaily (= ${binary:Version}),
  python-argparse,
