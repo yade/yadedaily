@@ -1,5 +1,5 @@
-http://ftp.de.debian.org/debian
-main
+http://ubuntu.mirror.tudos.de/ubuntu/
+main universe multiverse
 amd64 i386
-/usr/share/keyrings/debian-archive-keyring.gpg
+/usr/share/keyrings/ubuntu-archive-keyring.gpg
 #
