@@ -1,0 +1,17 @@
+Description: remove plot autotest
+Author: Anton Gladky <gladky.anton@gmail.com>
+Last-Update: 2013-11-28
+
+--- yadedaily-1.05.0-36-g23ef6f1~precise.orig/py/plot.py
++++ yadedaily-1.05.0-36-g23ef6f1~precise/py/plot.py
+@@ -582,10 +582,6 @@ def plot(noShow=False,subPlots=True):
+ 		>>> from yade import plot
+ 		>>> plot.resetData()
+ 		>>> plot.plots={'foo':('bar',)}
+-		>>> plot.plot(noShow=True).savefig('someFile.pdf')
+-		>>> import os
+-		>>> os.path.exists('someFile.pdf')
+-		True
+ 		
+ 	to save the figure to file automatically.
+ 
