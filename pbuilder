@@ -1,5 +1,5 @@
-http://ubuntu.mirror.tudos.de/ubuntu/
-main universe multiverse
+http://ftp.de.debian.org/debian
+main
 amd64
-/usr/share/keyrings/ubuntu-archive-keyring.gpg
-deb http://www.yade-dem.org/packages/ precise/
+/usr/share/keyrings/debian-archive-keyring.gpg
+#
