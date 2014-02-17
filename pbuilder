@@ -1,5 +1,5 @@
 http://ubuntu.mirror.tudos.de/ubuntu/
 main universe multiverse
-amd64
+amd64 i386
 /usr/share/keyrings/ubuntu-archive-keyring.gpg
 #
