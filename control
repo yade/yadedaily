@@ -15,7 +15,6 @@ Build-Depends:
  ipython,
  libboost-all-dev,
  libbz2-dev,
- libcgal-dev [!armel],
  libeigen3-dev,
  libgl1-mesa-dev,
  libgts-dev,
