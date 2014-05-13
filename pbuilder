@@ -1,5 +1,5 @@
 http://ftp.de.debian.org/debian
 main
-amd64 i386
+amd64
 /usr/share/keyrings/debian-archive-keyring.gpg
 #
