@@ -15,7 +15,7 @@ Build-Depends:
  ipython,
  libboost-all-dev,
  libbz2-dev,
- libeigen3-dev,
+ libeigen3-dev (>=3.2.1-1),
  libgl1-mesa-dev,
  libgts-dev,
  libloki-dev,
