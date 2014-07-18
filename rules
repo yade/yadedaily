@@ -21,7 +21,6 @@ extra_flags += \
 -DSUFFIX="daily" \
 -DLIBRARY_OUTPUT_PATH=lib/$(DEB_HOST_MULTIARCH) \
 -DYADE_VERSION=VERSIONYADEREPLACE \
--DCHUNKSIZE=8 \
 
 override_dh_auto_configure:
 	dh_auto_configure -- $(extra_flags)
