@@ -17,7 +17,7 @@ export YADE_PREFIX := $(tmpInstall)/usr
 
 extra_flags += \
 -DruntimePREFIX="/usr" \
--DINSTALL_PREFIX="/usr" \
+-DCMAKE_INSTALL_PREFIX="/usr" \
 -DSUFFIX="daily" \
 -DLIBRARY_OUTPUT_PATH=lib/$(DEB_HOST_MULTIARCH) \
 -DYADE_VERSION=VERSIONYADEREPLACE \
