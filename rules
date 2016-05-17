@@ -23,7 +23,7 @@ extra_flags += \
 -DYADE_VERSION=VERSIONYADEREPLACE \
 -DCHUNKSIZE=4 \
 -DENABLE_SPH=0 \
--DUSE_QT5=1 \
+
 
 override_dh_auto_configure:
 	dh_auto_configure -- $(extra_flags)
