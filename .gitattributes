@@ -1,0 +1,2 @@
+# Ignore all diffs in line endings
+*        -crlf
