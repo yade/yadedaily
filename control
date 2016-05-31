@@ -22,7 +22,7 @@ Build-Depends:
  libloki-dev,
  libmetis-dev [amd64 i386 ia64 kfreebsd-amd64 kfreebsd-i386 powerpc],
  libopenblas-dev [amd64 i386 ia64 kfreebsd-amd64 kfreebsd-i386 powerpc],
- libqglviewer-dev,
+ libqglviewer-dev-qt5,
  libsuitesparse-dev [amd64 i386 ia64 kfreebsd-amd64 kfreebsd-i386 powerpc],
  libvtk6-dev,
  libxi-dev,
