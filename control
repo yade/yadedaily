@@ -47,6 +47,7 @@ Build-Depends-Indep:
  python-bibtex,
  python-sphinx (>= 1.0.7+dfsg),
  texlive-fonts-recommended,
+ texlive-generic-extra,
  texlive-latex-extra,
  texlive-latex-recommended,
  texlive-pictures,
