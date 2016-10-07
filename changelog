@@ -2,4 +2,4 @@ yadedaily (VERSION-1) DISTRIBUTION; urgency=low
 
   * Default debian changelog entry for yadedaily
 
- -- YADE packaging team <package@yade-dem.org>  DATE
+ -- Yade Developers (Key for signing packages) <yade-dev@lists.launchpad.net>  DATE
