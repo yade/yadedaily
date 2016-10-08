@@ -11,6 +11,7 @@ export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
 export MPLCONFIGDIR := $(tmpDirMatplotLib) 
 export HOME := $(tmpDirMatplotLib) 
+export PATH := /usr/lib/ccache/$(PATH)
 export LD_LIBRARY_PATH :=  $(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py/gts:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py/yade:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py/yade/qt:$(LD_LIBRARY_PATH); 
 export DEB_HOST_MULTIARCH := $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 export YADE_PREFIX := $(tmpInstall)/usr
@@ -29,6 +30,9 @@ override_dh_auto_configure:
 	#Output an information about available memory and CPU
 	-cat /proc/meminfo
 	-cat /proc/cpuinfo
+
+override_dh_auto_build:
+	dh_auto_build -- -j2
 
 override_dh_auto_install-arch:
 	dh_auto_install -a
