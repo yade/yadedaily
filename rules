@@ -31,6 +31,9 @@ override_dh_auto_configure:
 	-cat /proc/meminfo
 	-cat /proc/cpuinfo
 
+override_dh_auto_build:
+	dh_auto_build -- -j2
+
 override_dh_auto_install-arch:
 	dh_auto_install -a
 	# generate manpages
