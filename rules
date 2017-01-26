@@ -17,10 +17,11 @@ export YADE_PREFIX := $(tmpInstall)/usr
 
 extra_flags += \
 -DruntimePREFIX="/usr" \
--DINSTALL_PREFIX="/usr" \
+-DCMAKE_INSTALL_PREFIX="/usr" \
 -DSUFFIX="daily" \
 -DLIBRARY_OUTPUT_PATH=lib/$(DEB_HOST_MULTIARCH) \
--DYADE_VERSION=$(shell dpkg-parsechangelog | sed -n 's/^Version: \([^-]*\).*$$/\1/p') \
+-DYADE_VERSION=VERSIONYADEREPLACE \
+-DENABLE_SPH=0 \
 
 override_dh_auto_configure:
 	dh_auto_configure -- $(extra_flags)
