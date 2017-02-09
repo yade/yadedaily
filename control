@@ -115,6 +115,7 @@ Depends:
  python-matplotlib,
  python-minieigen [!precise],
  python-pyqt5,
+ python-pyqt5.qtwebkit,
  python-tk,
  python-xlib,
  ${misc:Depends},
