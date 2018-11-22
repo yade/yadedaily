@@ -36,6 +36,7 @@ Build-Depends:
  python-minieigen [!precise],
  python-numpy,
  python-pyqt5,
+ python-pyqt5.qtwebkit,
  python-tk,
  python-xlib,
  zlib1g-dev
