@@ -36,7 +36,6 @@ Build-Depends:
  python-numpy,
  python-pil,
  python-pyqt5,
- python-pyqt5.qtsvg,
  python-tk,
  python-xlib,
  zlib1g-dev
